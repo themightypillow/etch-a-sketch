@@ -7,4 +7,9 @@
 
 .square {
   border: 1px solid black;
+  transition: background-color 0.2s;
+}
+
+.trail {
+  background-color: red;
 }
