@@ -1,0 +1,10 @@
+#sketchpad {
+  display: grid;
+  grid-template-columns: repeat(16, 30px);
+  grid-template-rows: repeat(16, 30px);
+  gap: 2px 2px;
+}
+
+.square {
+  border: 1px solid black;
+}
