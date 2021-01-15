@@ -23,13 +23,21 @@ function clearPad() {
   buildPad(gridSize);
 }
 
+function drawTrail(square) {
+  if(square.dataset.hover < 10) {
+    square.dataset.hover++;
+    square.style.backgroundColor = `rgba(0, 0, 0, ${square.dataset.hover / 10})`;
+  }
+}
+
 function buildPad(n) {
   sketchPad.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
   sketchPad.style.gridTemplateRows = `repeat(${n}, 1fr)`;
   for(let i = 0; i < n * n; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
-    square.addEventListener("mouseover", (e) => e.target.classList.add("trail"));
+    square.dataset.hover = 0;
+    square.addEventListener("mouseover", (e) => drawTrail(e.target));
     sketchPad.appendChild(square);
   }
 }
